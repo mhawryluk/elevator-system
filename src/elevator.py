@@ -2,7 +2,8 @@ from direction import Direction
 
 
 class Elevator:
-    def __init__(self):
+    def __init__(self, id):
+        self.id = id
         self.current_floor = 0
         self.destination = 0
 
@@ -20,3 +21,6 @@ class Elevator:
     def update(self, current_floor, destination):
         self.current_floor = current_floor
         self.destination = destination
+
+    def get_status(self):
+        return self.id, self.current_floor, self.destination

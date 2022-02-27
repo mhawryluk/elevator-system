@@ -11,7 +11,7 @@ class Elevator:
     def move(self):
         self.open_doors = False
         direction = self.get_direction()
-        self.current_floor += direction
+        self.current_floor += direction.value
 
         while self.destinations and self.current_floor == self.destinations[0]:
             self.open_doors = True
@@ -31,7 +31,7 @@ class Elevator:
         self.destination = destination
 
     def get_status(self):
-        return self.id, self.current_floor, self.destinations[0]
+        return self.id, self.current_floor, self.destinations
 
     def get_destination_count(self):
         return len(self.destinations)

@@ -18,14 +18,14 @@ class ElevatorSystem:
     def step(self):
         for elevator in self.elevators:
             elevator.move()
-    
+
     def get_open_doors(self, floor):
         open_elevators = []
 
         for elevator in self.elevators:
             if elevator.current_floor == floor and elevator.open_doors:
-                open_elevators.append(elevator.get_status())
-        
+                open_elevators.append(elevator.id)
+
         return open_elevators
 
     def get_status(self):

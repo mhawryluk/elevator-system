@@ -8,6 +8,9 @@ class Elevator:
         self.destinations = []
         self.open_doors = False
 
+    def __str__(self):
+        return f'| id: {self.id}, floor: {self.current_floor}, dest: {self.destinations}' + (' DOOR OPEN |' if self.open_doors else ' |')
+
     def move(self):
         self.open_doors = False
         direction = self.get_direction()

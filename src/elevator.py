@@ -44,10 +44,10 @@ class Elevator:
         '''
         destinations = self.destinations()
         if destinations:
-            if self.direction is Direction.UP and max(destinations) == self.current_floor: # reached the highest destination
+            if self.direction is Direction.UP and max(destinations) == self.current_floor: # reached the highest destination and there is still one of the same floor but in the opposite direction
                 self.direction = Direction.STAY
                 self.check_open_doors()
-            elif self.direction is Direction.DOWN and min(destinations) == self.current_floor: # reached the lowest destination
+            elif self.direction is Direction.DOWN and min(destinations) == self.current_floor: # reached the lowest destination and there is still one of the same floor but in the opposite direction
                 self.direction = Direction.STAY
                 self.check_open_doors
             elif self.direction is Direction.DOWN:

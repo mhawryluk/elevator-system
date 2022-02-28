@@ -5,7 +5,7 @@ class Elevator:
     def __init__(self, id):
         self.id = id
         self.current_floor = 0
-        # self.destinations = set()
+
         self.up_destinations = set()
         self.down_destinations = set()
         self.direction = Direction.STAY

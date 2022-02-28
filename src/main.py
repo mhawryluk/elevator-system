@@ -1,5 +1,19 @@
 from elevatorsystem import ElevatorSystem
 
+info = '''----------
+
+Type one of the following actions:
+
+step -> make one step of the simulation
+
+pickup -> the program will prompt you to enter the floor number and the direction of the pickup seperated by a comma!
+the direction should be input as an integer - a positive number meaning UP and negative meaning DOWN
+the prompt to choose floor destination when entering the elevator will come up once the elevator reaches the pickup floor and the directions match
+
+exit -> terminate the program
+
+----------
+'''
 
 def text_simulation():
 
@@ -15,7 +29,7 @@ def text_simulation():
 
     def step():
         nonlocal pickups
-        
+
         elevator_system.step()
         print(elevator_system)
 
@@ -41,21 +55,7 @@ def text_simulation():
     elevator_system = ElevatorSystem(elevator_count)
     pickups = set()
 
-    print('''----------
-
-Type one of the following actions:
-
-step -> make one step of the simulation
-
-pickup -> the program will prompt you to enter the floor number and the direction of the pickup seperated by a comma!
-the direction should be input as an integer - a positive number meaning UP and negative meaning DOWN
-the prompt to choose floor destination when entering the elevator will come up once the elevator reaches the pickup floor and the directions match
-
-exit -> terminate the program
-
-----------
-''')
-
+    print(info)
     print(elevator_system)
 
     while True:

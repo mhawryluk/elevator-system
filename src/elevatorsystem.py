@@ -5,7 +5,7 @@ from direction import Direction
 class ElevatorSystem:
     def __init__(self, elevator_count=4):
         self.elevators = [Elevator(i) for i in range(elevator_count)]
-    
+
     def __str__(self):
         return '\n'.join(map(str, self.elevators))
 
@@ -23,11 +23,11 @@ class ElevatorSystem:
             elevator.move()
 
     def get_open_doors(self, floor):
-        open_elevators = []
+        open_elevators = set()
 
         for elevator in self.elevators:
             if elevator.current_floor == floor and elevator.open_doors:
-                open_elevators.append(elevator.id)
+                open_elevators.add(elevator.id)
 
         return open_elevators
 

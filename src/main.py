@@ -6,7 +6,7 @@ def text_simulation():
     def pickup():
         try:
             floor, direction = map(int, input(
-                "floor, direction: ").split(','))
+                "<floor>, <direction>: ").split(','))
             elevator_system.pickup(floor, direction)
             pickups.add(floor)
             print(elevator_system)
@@ -14,6 +14,8 @@ def text_simulation():
             print('Wrong input')
 
     def step():
+        nonlocal pickups
+        
         elevator_system.step()
         print(elevator_system)
 

@@ -10,7 +10,7 @@ def text_simulation():
 
     while True:
 
-        action = input('>> ')
+        action = input('>> ').strip()
 
         if action == 'pickup':
             try:
@@ -35,7 +35,7 @@ def text_simulation():
                         chosen_floor = int(
                             input(f'floor #{floor} elevator\'s door open, choose floor: '))
                         elevator_system.choose_floor(
-                            open_doors.pop(), chosen_floor)
+                            open_doors.pop(), floor, chosen_floor)
                         picked_up_floors.add(floor)
                         print(elevator_system)
                     except ValueError:

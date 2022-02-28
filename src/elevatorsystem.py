@@ -9,14 +9,27 @@ class ElevatorSystem:
     def __str__(self):
         return '\n'.join(map(str, self.elevators))
 
-    def pickup(self, floor, direction):
+    def pickup(self, floor, direction_value):
+        direction = Direction.STAY
+
+        if direction_value > 0:
+            direction = Direction.UP
+        elif direction_value < 0:
+            direction = Direction.DOWN
+
         elevator_pick = min(
             self.elevators, key=lambda elevator: elevator.get_destination_count())
 
-        elevator_pick.add_destination(floor)
+        elevator_pick.add_destination(floor, direction)
 
-    def choose_floor(self, elevatorId, floor):
-        self.elevators[elevatorId].add_destination(floor)
+    def choose_floor(self, elevatorId, current_floor, floor):
+        direction = Direction.STAY
+        if current_floor < floor:
+            direction = Direction.UP
+        elif current_floor > floor:
+            direction = Direction.DOWN
+
+        self.elevators[elevatorId].add_destination(floor, direction)
 
     def step(self):
         for elevator in self.elevators:
